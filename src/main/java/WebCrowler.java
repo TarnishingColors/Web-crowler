@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.jsoup.*;
 
 
 class WebCrawler {
@@ -88,7 +89,7 @@ class Main {
     {
 
         WebCrawler webCrawler = new WebCrawler();
-        String root = "https://www.google.com";
+        String root = "https://www.habr.com";
 
         webCrawler.discover(root);
     }
