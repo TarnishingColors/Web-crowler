@@ -69,24 +69,19 @@ class WebCrawler {
 
             String input = "";
 
-            while ((input = bufferedReader.readLine())
-                    != null) {
+            while ((input = bufferedReader.readLine()) != null) {
                 raw += input;
             }
             bufferedReader.close();
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return raw;
     }
-}
 
-class Main {
-
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
 
         WebCrawler webCrawler = new WebCrawler();
         String root = "https://www.habr.com";
@@ -94,3 +89,4 @@ class Main {
         webCrawler.discover(root);
     }
 }
+
