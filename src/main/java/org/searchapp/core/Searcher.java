@@ -1,4 +1,4 @@
-package org.searchapp;
+package org.searchapp.core;
 
 import org.jsoup.nodes.Document;
 
