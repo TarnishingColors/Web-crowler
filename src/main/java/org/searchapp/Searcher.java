@@ -1,3 +1,5 @@
+package org.searchapp;
+
 import org.jsoup.nodes.Document;
 
 public abstract class Searcher {
