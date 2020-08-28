@@ -34,7 +34,7 @@ public class SearcherForCinema extends Searcher {
     }
 
     @Override
-    public Document InitializeDoc() {
+    public Document InitializeDoc() throws InterruptedException {
 
         boolean flag = true;
         Document doc = null;
@@ -47,7 +47,7 @@ public class SearcherForCinema extends Searcher {
                         .userAgent(agent).get();
                 flag = false;
 
-            } catch (Exception e) { continue; }
+            } catch (Exception e) { Thread.sleep(10); }
 
         }
 
@@ -58,10 +58,10 @@ public class SearcherForCinema extends Searcher {
 
     //TODO: Implement interactive chat with user
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         SearcherForCinema sfc = new SearcherForCinema(
-                "afisha.ru/msk/cinema/",
+                "https://afisha.ru/",
                 29,
                 "august",
                 "Moscow"
@@ -79,9 +79,8 @@ public class SearcherForCinema extends Searcher {
 //            System.out.println(e.attr("abs:href"));
 //            System.out.println(e.text());
 //            System.out.println();
-            System.out.println(1);
 
-            if (matcher.matches()) {
+            if (e.attr("abs:href").matches("^.*?(movie|cinema).*$")) {
 
                 System.out.println(e.attr("abs:href"));
                 System.out.println(e.text());

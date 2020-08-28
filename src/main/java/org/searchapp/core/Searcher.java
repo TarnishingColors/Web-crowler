@@ -14,5 +14,5 @@ public abstract class Searcher {
 
     private String agent = "Chrome";
 
-    abstract public Document InitializeDoc();
+    abstract public Document InitializeDoc() throws InterruptedException;
 }
