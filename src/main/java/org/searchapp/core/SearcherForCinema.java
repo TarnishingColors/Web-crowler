@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class SearcherForCinema extends Searcher {
+public class SearcherForCinema implements Searcher {
 
     final private String siteAddress;
 
@@ -70,17 +70,14 @@ public class SearcherForCinema extends Searcher {
         Document doc = sfc.InitializeDoc();
 
         System.out.print(doc.html());
-        Pattern pattern = Pattern.compile("cinema");
+        Pattern pattern = Pattern.compile("^.*?(movie|cinema).*$");
 
         for (Element e: doc.select("a[href]")) {
 
             Matcher matcher = pattern.matcher(e.attr("abs:href"));
 
-//            System.out.println(e.attr("abs:href"));
-//            System.out.println(e.text());
-//            System.out.println();
 
-            if (e.attr("abs:href").matches("^.*?(movie|cinema).*$")) {
+            if (matcher.matches()) {
 
                 System.out.println(e.attr("abs:href"));
                 System.out.println(e.text());
