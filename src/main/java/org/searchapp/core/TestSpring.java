@@ -3,15 +3,15 @@ package org.searchapp.core;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
 
-        TestBean testBean = context.getBean("testBean", TestBean.class);
+        SearcherForCinema testBean = context.getBean("searcherForCinema", SearcherForCinema.class);
 
-        System.out.println(testBean.getName());
+        System.out.println(testBean.InitializeDoc());
 
         context.close();
     }
